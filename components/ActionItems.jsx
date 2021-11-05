@@ -52,7 +52,7 @@ const Header = tw.section`
 `;
 
 const UberLogo = tw.img`
-    h-14 cursor-pointer
+    h-12 cursor-pointer
 `;
 
 const Profile = tw.div`
@@ -60,7 +60,7 @@ const Profile = tw.div`
 `;
 
 const Name = tw.div`
-    mx-4 text-xl font-semibold
+    mx-4 text-xl font-semibold truncate w-32
 `;
 
 const UserImage = tw.img`
@@ -80,7 +80,7 @@ const ActionButtonIcon = tw.img`
 `;
 
 const InputButton = tw.div`
-    h-20 bg-gray-200 rounded-lg flex items-center cursor-pointer text-xl font-semibold p-4 my-5
+    h-18 bg-gray-200 rounded-lg flex items-center cursor-pointer text-xl font-semibold p-4 my-4
 `;
 
 const Wrapper = tw.div`
