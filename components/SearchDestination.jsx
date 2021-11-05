@@ -10,11 +10,11 @@ const SearchDestination = () => {
 
   return (
     <Wrapper>
-      <Link href="/" passHref>
-        <ButtonContainer>
+      <ButtonContainer>
+        <Link href="/" passHref>
           <BackButton src="/assets/left.png" alt="Back" />
-        </ButtonContainer>
-      </Link>
+        </Link>
+      </ButtonContainer>
 
       <InputContainer>
         <FromToIcons>
