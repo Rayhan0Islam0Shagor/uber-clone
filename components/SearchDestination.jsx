@@ -83,10 +83,10 @@ const PlusButton = tw.img`
 `;
 
 const SavedPlaces = tw.div`
-  bg-white px-4 py-2 flex items-center text-xl font-semibold my-2
+  bg-white px-4 py-2 flex items-center text-xl font-semibold my-2 cursor-pointer
 `;
 const StarIcon = tw.img`
-  bg-gray-400 h-10 w-10 rounded-full p-2 mr-2
+  bg-gray-400 h-10 w-10 rounded-full p-2 mr-2 hover:bg-yellow-500
 `;
 
 const ConfirmLocation = tw.div`

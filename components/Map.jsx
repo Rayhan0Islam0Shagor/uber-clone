@@ -12,7 +12,7 @@ const Map = () => {
       // style: 'mapbox://styles/drakosi/ckvcwq3rwdw4314o3i2ho8tph',
       style: 'mapbox://styles/drakosi/ckvcwq3rwdw4314o3i2ho8tph',
       center: [90.4335651, 23.7291223], //[lng, lat]
-      zoom: 6,
+      zoom: 13,
     });
   });
 
