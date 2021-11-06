@@ -11,7 +11,7 @@ const Map = ({ pickup, dropOf }) => {
       container: 'map',
       style: 'mapbox://styles/drakosi/ckvcwq3rwdw4314o3i2ho8tph',
       center: [90.4335651, 23.7291223], //[lng, lat]
-      zoom: 12,
+      zoom: 10,
     });
 
     if (pickup) {
@@ -19,7 +19,7 @@ const Map = ({ pickup, dropOf }) => {
     }
 
     if (dropOf) {
-      addToMap(map, dropOf);
+      dropMarker(map, dropOf);
     }
 
     if (pickup && dropOf) {
@@ -31,6 +31,12 @@ const Map = ({ pickup, dropOf }) => {
 
   const addToMap = (map, coordinate) => {
     const marker1 = new mapboxgl.Marker().setLngLat(coordinate).addTo(map);
+  };
+
+  const dropMarker = (map, coordinate) => {
+    const marker2 = new mapboxgl.Marker({ color: 'red', rotation: 20 })
+      .setLngLat(coordinate)
+      .addTo(map);
   };
 
   return <Wrapper id="map"></Wrapper>;
