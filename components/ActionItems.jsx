@@ -84,5 +84,5 @@ const InputButton = tw.div`
 `;
 
 const Wrapper = tw.div`
-    flex-1 px-2
+    flex-1 px-2 h-1/2
 `;
