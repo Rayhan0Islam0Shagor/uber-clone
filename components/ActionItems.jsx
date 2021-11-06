@@ -26,7 +26,7 @@ const ActionItems = () => {
         </Link>
         <Link href="/search" passHref>
           <ActionButton>
-            <ActionButtonIcon src="/assets/bike.png" alt="home icon" />
+            <ActionButtonIcon src="/assets/bike-2.png" alt="home icon" />
             2-Wheels
           </ActionButton>
         </Link>
