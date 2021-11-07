@@ -1,10 +1,32 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import tw from 'tailwind-styled-components';
 import Map from '../components/Map';
 import ActionItems from '../components/ActionItems';
+import { auth } from '../config/firebaseConfig';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const [user, setUser] = useState(null);
+  const router = useRouter();
+
+  useEffect(
+    () =>
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setUser({
+            name: user.displayName,
+            photoUrl: user.photoURL,
+          });
+        } else {
+          setUser(null);
+          router.push('/login');
+        }
+      }),
+    [router]
+  );
+
   return (
     <div>
       <Head>
@@ -15,7 +37,7 @@ export default function Home() {
 
       <Wrapper>
         <Map />
-        <ActionItems />
+        <ActionItems user={user} />
       </Wrapper>
     </div>
   );

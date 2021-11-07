@@ -56,7 +56,7 @@ const SearchDestination = () => {
     <>
       <ButtonContainer>
         <Link href="/" passHref>
-          <BackButton src="/assets/left.png" alt="Back" />
+          <BackButton title="go back" src="/assets/left.png" alt="Back" />
         </Link>
       </ButtonContainer>
 
@@ -183,7 +183,7 @@ const ButtonContainer = tw.section`
 `;
 
 const BackButton = tw.img`
-  h-12 cursor-pointer
+  h-10 cursor-pointer border p-1
 `;
 
 const InputContainer = tw.div`

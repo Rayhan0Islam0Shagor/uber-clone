@@ -1,8 +1,25 @@
+import { useEffect, useState } from 'react';
 import tw from 'tailwind-styled-components';
 import Car from './Car';
 import { carList } from '../data/carList';
 
-const RideSelection = () => {
+const RideSelection = ({ pickup, dropOf }) => {
+  const [rideDuration, setRideDuration] = useState(0);
+
+  console.log(pickup, dropOf);
+
+  useEffect(() => {
+    const getDuration = async () => {
+      const res = await fetch(
+        `https://api.mapbox.com/directions/v5/mapbox/driving/${pickup[0]},${pickup[1]}; ${dropOf[0]},${dropOf[1]}?access_token=pk.eyJ1IjoicmF5aGFuLWlzbGFtIiwiYSI6ImNrdmtsY3pwdjBid3Ayb3Vwdmh1Z2N3ZHIifQ.Lg-VSGFuXFZbfWbUWbhNRQ`
+      );
+      const data = await res.json();
+      setRideDuration(data && data?.routes[0].duration / 100);
+    };
+
+    getDuration();
+  }, [pickup, dropOf]);
+
   return (
     <Wrapper>
       <CarList>
@@ -12,6 +29,7 @@ const RideSelection = () => {
             image={car.imgUrl}
             service={car.service}
             multiplier={car.multiplier}
+            rideDuration={rideDuration}
           />
         ))}
       </CarList>

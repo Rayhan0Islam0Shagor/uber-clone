@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import tw from 'tailwind-styled-components';
 import mapboxgl from 'mapbox-gl';
 
@@ -27,6 +27,16 @@ const Map = ({ pickup, dropOf }) => {
         padding: 80,
       });
     }
+
+    // if (pickup && dropOf) {
+    //   map.addControl(
+    //     new MapboxDirections({
+    //       accessToken:
+    //         'pk.eyJ1IjoicmF5aGFuLWlzbGFtIiwiYSI6ImNrdmtsY3pwdjBid3Ayb3Vwdmh1Z2N3ZHIifQ.Lg-VSGFuXFZbfWbUWbhNRQ',
+    //     }),
+    //     'top-left'
+    //   );
+    // }
   }, [pickup, dropOf]);
 
   const addToMap = (map, coordinate) => {
@@ -38,6 +48,14 @@ const Map = ({ pickup, dropOf }) => {
       .setLngLat(coordinate)
       .addTo(map);
   };
+
+  // const route = () = map.addControl(
+  //   new MapboxDirections({
+  //     accessToken:
+  //       'pk.eyJ1IjoicmF5aGFuLWlzbGFtIiwiYSI6ImNrdmtsY3pwdjBid3Ayb3Vwdmh1Z2N3ZHIifQ.Lg-VSGFuXFZbfWbUWbhNRQ',
+  //   }),
+  //   'top-left'
+  // );
 
   return <Wrapper id="map"></Wrapper>;
 };

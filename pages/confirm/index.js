@@ -9,8 +9,8 @@ const Confirm = () => {
   const router = useRouter();
   const { pickup: pickupLocation, dropOf: dropOfLocation } = router.query;
 
-  const [pickup, setPickup] = useState('');
-  const [dropOf, setDropOf] = useState('');
+  const [pickup, setPickup] = useState([0, 0]);
+  const [dropOf, setDropOf] = useState([0, 0]);
 
   const getPickupCoordinates = (pickupLocation) => {
     fetch(
@@ -50,7 +50,7 @@ const Confirm = () => {
       <Map pickup={pickup} dropOf={dropOf} />
       <RideContainer>
         <Title>Choose a ride, or swipe up for more</Title>
-        <RideSelection />
+        <RideSelection pickup={pickup} dropOf={dropOf} />
         <ConfirmButtonContainer>
           <ConfirmButton>Confirm UberX</ConfirmButton>
         </ConfirmButtonContainer>

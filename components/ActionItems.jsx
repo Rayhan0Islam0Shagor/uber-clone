@@ -1,18 +1,29 @@
+import { Menu } from '@headlessui/react';
 import Link from 'next/link';
 import tw from 'tailwind-styled-components';
+import DropDownMenu from './Menu';
 
-const ActionItems = () => {
+const ActionItems = ({ user }) => {
   return (
     <Wrapper>
       {/* Header */}
       <Header>
         <UberLogo src="/assets/Uber_logo_2018.svg" alt="uber logo"></UberLogo>
         <Profile>
-          <Name>Rayhan Islam</Name>
-          <UserImage
-            src="/assets/IMG_20210125_010111.jpg"
-            alt="profile image"
-          />
+          <Name>{user && user.name}</Name>
+
+          <Menu as="div" className="relative inline-block">
+            <div>
+              <Menu.Button>
+                <UserImage
+                  // onClick={() => signOut(auth)}
+                  src={user && user.photoUrl}
+                  alt="profile image"
+                />
+              </Menu.Button>
+            </div>
+            <DropDownMenu />
+          </Menu>
         </Profile>
       </Header>
       {/* action buttons */}
@@ -52,7 +63,7 @@ const Header = tw.section`
 `;
 
 const UberLogo = tw.img`
-    h-12 cursor-pointer
+    h-10 cursor-pointer
 `;
 
 const Profile = tw.div`
@@ -60,7 +71,7 @@ const Profile = tw.div`
 `;
 
 const Name = tw.div`
-    mx-4 text-xl font-semibold truncate w-32
+    mx-4 text-md font-semibold truncate w-26
 `;
 
 const UserImage = tw.img`
