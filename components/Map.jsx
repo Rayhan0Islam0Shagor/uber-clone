@@ -27,16 +27,6 @@ const Map = ({ pickup, dropOf }) => {
         padding: 80,
       });
     }
-
-    // if (pickup && dropOf) {
-    //   map.addControl(
-    //     new MapboxDirections({
-    //       accessToken:
-    //         'pk.eyJ1IjoicmF5aGFuLWlzbGFtIiwiYSI6ImNrdmtsY3pwdjBid3Ayb3Vwdmh1Z2N3ZHIifQ.Lg-VSGFuXFZbfWbUWbhNRQ',
-    //     }),
-    //     'top-left'
-    //   );
-    // }
   }, [pickup, dropOf]);
 
   const addToMap = (map, coordinate) => {
@@ -44,18 +34,10 @@ const Map = ({ pickup, dropOf }) => {
   };
 
   const dropMarker = (map, coordinate) => {
-    const marker2 = new mapboxgl.Marker({ color: 'red', rotation: 20 })
+    const marker2 = new mapboxgl.Marker({ color: 'red', rotation: 45 })
       .setLngLat(coordinate)
       .addTo(map);
   };
-
-  // const route = () = map.addControl(
-  //   new MapboxDirections({
-  //     accessToken:
-  //       'pk.eyJ1IjoicmF5aGFuLWlzbGFtIiwiYSI6ImNrdmtsY3pwdjBid3Ayb3Vwdmh1Z2N3ZHIifQ.Lg-VSGFuXFZbfWbUWbhNRQ',
-  //   }),
-  //   'top-left'
-  // );
 
   return <Wrapper id="map"></Wrapper>;
 };

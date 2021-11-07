@@ -11,10 +11,17 @@ const RideSelection = ({ pickup, dropOf }) => {
   useEffect(() => {
     const getDuration = async () => {
       const res = await fetch(
-        `https://api.mapbox.com/directions/v5/mapbox/driving/${pickup[0]},${pickup[1]}; ${dropOf[0]},${dropOf[1]}?access_token=pk.eyJ1IjoicmF5aGFuLWlzbGFtIiwiYSI6ImNrdmtsY3pwdjBid3Ayb3Vwdmh1Z2N3ZHIifQ.Lg-VSGFuXFZbfWbUWbhNRQ`
+        `https://api.mapbox.com/directions/v5/mapbox/driving/${
+          pickup && pickup[0]
+        },${pickup && pickup[1]}; ${dropOf && dropOf[0]},${
+          dropOf && dropOf[1]
+        }?access_token=pk.eyJ1IjoicmF5aGFuLWlzbGFtIiwiYSI6ImNrdmtsY3pwdjBid3Ayb3Vwdmh1Z2N3ZHIifQ.Lg-VSGFuXFZbfWbUWbhNRQ`
       );
       const data = await res.json();
-      setRideDuration(data && data?.routes[0].duration / 100);
+
+      if (data) {
+        setRideDuration(data?.routes[0]?.distance / 100);
+      }
     };
 
     getDuration();
